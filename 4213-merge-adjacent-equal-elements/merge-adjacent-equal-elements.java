@@ -2,7 +2,7 @@ import java.util.*;
 
 class Solution {
     public List<Long> mergeAdjacent(int[] nums) {
-        ArrayList<Long> list = new ArrayList<>();
+        ArrayList <Long> list = new ArrayList<>();
 
         for (int num : nums) {
             long curr = num;
