@@ -1,17 +1,42 @@
+// class Solution {
+//     public String removeDuplicates(String s) {
+//         StringBuilder sb = new StringBuilder();
+
+//         for (char ch : s.toCharArray()) {
+//             int n = sb.length();
+
+//             if (n > 0 && sb.charAt(n - 1) == ch) {
+//                 sb.deleteCharAt(n - 1);
+//             } else {
+//                 sb.append(ch);
+//             }
+//         }
+
+//         return sb.toString();
+//     }
+// }
+
+
+import java.util.Stack;
+
 class Solution {
     public String removeDuplicates(String s) {
-        StringBuilder sb = new StringBuilder();
+        Stack<Character> stack = new Stack<>();
 
         for (char ch : s.toCharArray()) {
-            int n = sb.length();
-
-            if (n > 0 && sb.charAt(n - 1) == ch) {
-                sb.deleteCharAt(n - 1);
+            if (!stack.isEmpty() && stack.peek() == ch) {
+                stack.pop();
             } else {
-                sb.append(ch);
+                stack.push(ch);
             }
         }
 
-        return sb.toString();
+        StringBuilder ans = new StringBuilder();
+
+        for (char ch : stack) {
+            ans.append(ch);
+        }
+
+        return ans.toString();
     }
 }
