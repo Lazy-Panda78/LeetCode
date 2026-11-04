@@ -9,8 +9,7 @@ class Solution {
 
             int curr = (i == n) ? 0 : heights[i];
 
-            while (!st.isEmpty() &&
-                   curr < heights[st.peek()]) {
+            while (!st.isEmpty() && curr < heights[st.peek()]) {
 
                 int height = heights[st.pop()];
 
